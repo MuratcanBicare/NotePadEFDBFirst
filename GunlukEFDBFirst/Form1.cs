@@ -78,10 +78,15 @@ namespace GunlukEFDBFirst
 
         private void btnKaydet_Click(object sender, EventArgs e)
         {
+
+
             Note note = (Note)lstNotlar.SelectedItem;
             string baslik = txtBaslik.Text.Trim();
             string icerik = txtIcerik.Text.Trim();
 
+            if (note == null)
+                return;
+            
             if (note.Baslik != baslik || note.Icerik != icerik)
             {
 
@@ -90,9 +95,6 @@ namespace GunlukEFDBFirst
             }
             db.SaveChanges();
             NotlariListele();
-            
-            
-            
             
         }
 
