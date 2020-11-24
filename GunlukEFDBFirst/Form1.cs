@@ -134,7 +134,10 @@ namespace GunlukEFDBFirst
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            
+
+            if (lstNotlar.SelectedItems.Count == 0)
+                return;
+
             Note n = (Note)lstNotlar.SelectedItem;
             if (txtIcerik.Text != n.Icerik || txtBaslik.Text != n.Baslik)
             {
